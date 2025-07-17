@@ -1,0 +1,223 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu-container {
+    background-color: #ffffff;
+    border: 5px solid #d4af37; /* Gold border */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 1000px; /* Adjust as needed */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative; /* For absolute positioning of images later */
+}
+
+.menu-section-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+}
+
+.menu-section {
+    flex: 1; /* Allows sections to grow and shrink */
+    min-width: 300px; /* Minimum width for each section */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Crucial for positioning child images */
+    overflow: hidden; /* Ensures images don't break out of the section's bounds without explicit overflow */
+}
+
+.section-title {
+    background-color: #d4af37; /* Gold background for title */
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0;
+    margin: -15px -15px 15px -15px; /* Adjust to extend to section edges */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    letter-spacing: 1.5px;
+    position: relative; /* To ensure title is above images if they overlap */
+    z-index: 2; /* Higher than images */
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    position: relative;
+    z-index: 1; /* Ensure text is above images */
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    font-weight: 500;
+    color: #333;
+    flex-grow: 1;
+}
+
+.item-price {
+    font-weight: 700;
+    color: #d4af37; /* Gold color for price */
+    margin-left: 10px;
+}
+
+.item-description {
+    font-size: 0.85em;
+    color: #666;
+    margin-top: -5px;
+    margin-bottom: 10px;
+    padding-left: 5px; /* Indent description slightly */
+    position: relative;
+    z-index: 1;
+}
+
+/* Common styling for all section images */
+.section-img {
+    position: absolute;
+    width: 120px; /* Default width */
+    height: 90px; /* Default height */
+    object-fit: cover; /* Crop image to fit without stretching */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Stronger shadow for pop-out effect */
+    z-index: 0; /* Behind text and title */
+}
+
+/* Individual image positioning - Adjust these values carefully! */
+
+.rolls-img {
+    top: 60px;
+    right: -30px; /* Extends outside the section */
+    transform: rotate(8deg);
+}
+
+.maggie-img {
+    top: 60px;
+    left: -30px; /* Extends outside the section */
+    transform: rotate(-6deg);
+}
+
+.burger-img {
+    bottom: 0px; /* Position at the bottom */
+    right: -20px;
+    transform: rotate(4deg);
+    width: 130px; /* Slightly larger */
+    height: 100px;
+}
+
+.momo-img {
+    bottom: 0px;
+    left: -20px;
+    transform: rotate(-8deg);
+    width: 130px;
+    height: 100px;
+}
+
+.fries-img {
+    top: 60px;
+    right: -25px;
+    transform: rotate(5deg);
+}
+
+.sandwich-img {
+    top: 60px;
+    left: -25px;
+    transform: rotate(-3deg);
+}
+
+.pasta-img {
+    bottom: 0px;
+    right: -35px;
+    transform: rotate(10deg);
+    width: 140px;
+    height: 110px;
+}
+
+.rice-img {
+    bottom: 0px;
+    left: -35px;
+    transform: rotate(-7deg);
+    width: 140px;
+    height: 110px;
+}
+
+.thali-img {
+    top: 80px; /* Adjust for more content */
+    right: -40px;
+    transform: rotate(6deg);
+    width: 150px; /* Larger */
+    height: 120px;
+}
+
+.dessert-img {
+    top: 80px; /* Adjust for more content */
+    left: -40px;
+    transform: rotate(-9deg);
+    width: 150px;
+    height: 120px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .menu-section-row {
+        flex-direction: column;
+    }
+    .menu-section {
+        min-width: unset;
+        width: 100%;
+        /* Adjust image positions for smaller screens if they are too far out */
+    }
+    .section-img {
+        width: 100px; /* Make images smaller on mobile */
+        height: 75px;
+        margin-left: 20px;
+    }
+    .rolls-img, .maggie-img, .burger-img, .momo-img,
+    .fries-img, .sandwich-img, .pasta-img, .rice-img,
+    .thali-img, .dessert-img {
+        right: -15px; /* Bring them closer to the edge */
+        left: -15px;
+        top: 40px; /* Adjust vertical position */
+        bottom: 0px;
+    }
+    .thali-img, .dessert-img {
+        top: 60px; /* Adjust more for these sections */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .menu-container {
+        padding: 15px;
+    }
+    .section-title {
+        font-size: 1.4em;
+    }
+    .menu-item {
+        font-size: 0.9em;
+    }
+}
